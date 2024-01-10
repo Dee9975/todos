@@ -2,7 +2,6 @@ package store
 
 import (
 	"awesomeProject/data"
-	"awesomeProject/util"
 	"database/sql"
 	"errors"
 )
@@ -17,15 +16,17 @@ func NewTodoStore(db *sql.DB) *TodoStore {
 	}
 }
 
-func (s *TodoStore) GetTodos() ([]data.TodoResponse, error) {
+func (s *TodoStore) GetTodos() ([]data.Todo, error) {
 	rows, err := s.db.Query("select * from todos")
 
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close()
+	defer func(rows *sql.Rows) {
+		_ = rows.Close()
+	}(rows)
 
-	todos := make([]data.TodoResponse, 0)
+	todos := make([]data.Todo, 0)
 
 	for rows.Next() {
 		todo := data.Todo{}
@@ -34,12 +35,7 @@ func (s *TodoStore) GetTodos() ([]data.TodoResponse, error) {
 		if err != nil {
 			return nil, err
 		}
-		response := data.TodoResponse{
-			Id:       todo.Id,
-			Name:     todo.Name,
-			Complete: util.IntToBool(todo.Complete),
-		}
-		todos = append(todos, response)
+		todos = append(todos, todo)
 	}
 	err = rows.Err()
 
@@ -64,7 +60,7 @@ func (s *TodoStore) FindTodo(id int) (*data.Todo, error) {
 	}
 
 	if i == 0 {
-		return nil, errors.New("No rows found")
+		return nil, errors.New("no rows found")
 	}
 
 	if rows.Err() != nil {
@@ -72,6 +68,7 @@ func (s *TodoStore) FindTodo(id int) (*data.Todo, error) {
 	}
 	return &todo, nil
 }
+
 func (s *TodoStore) CreateTodo(todo data.CreateTodoRequest) error {
 	statement := `insert into todos (name, complete) values ($1, $2)`
 
@@ -83,7 +80,7 @@ func (s *TodoStore) CreateTodo(todo data.CreateTodoRequest) error {
 }
 
 func (s *TodoStore) UpdateTodo(id int, complete bool) error {
-	_, err := s.db.Exec("update todos set complete=$1 where id=$2", util.BoolToInt(complete), id)
+	_, err := s.db.Exec("update todos set complete=$1 where id=$2", complete, id)
 	if err != nil {
 		return err
 	}

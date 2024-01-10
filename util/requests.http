@@ -6,8 +6,8 @@ POST http://localhost:3000/api/v1/todos
 Content-Type: application/json
 
 {
-  "name": "Test",
-  "complete": true
+  "name": "Finish making the api",
+  "complete": false
 }
 
 ### Update todo

@@ -3,12 +3,12 @@ package data
 type Todo struct {
 	Id       int    `json:"id"`
 	Name     string `json:"name"`
-	Complete int    `json:"complete"`
+	Complete bool   `json:"complete"`
 }
 
 type CreateTodoRequest struct {
 	Name     string `json:"name"`
-	Complete int    `json:"complete"`
+	Complete bool   `json:"complete"`
 }
 
 type TodoResponse struct {

@@ -2,12 +2,13 @@ package db
 
 import (
 	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/lib/pq"
 	"log"
 )
 
 func New() *sql.DB {
-	db, err := sql.Open("sqlite3", "./mound.sqlite")
+	psqlInfo := "postgresql://Dee9975:XVN9pOyMUF3a@ep-lucky-lab-98347479.eu-central-1.aws.neon.tech/syrupstore?sslmode=require"
+	db, err := sql.Open("postgres", psqlInfo)
 
 	if err != nil {
 		log.Fatal(err)
