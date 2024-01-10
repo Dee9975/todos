@@ -1,0 +1,22 @@
+### Get todos
+GET http://localhost:3000/api/v1/todos
+
+### Create todo
+POST http://localhost:3000/api/v1/todos
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "complete": true
+}
+
+### Update todo
+PUT http://localhost:3000/api/v1/todos/1
+Content-Type: application/json
+
+{
+  "complete": false
+}
+
+### Delete todo
+DELETE http://localhost:3000/api/v1/todos/1
