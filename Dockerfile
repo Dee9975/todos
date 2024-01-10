@@ -6,7 +6,7 @@ COPY go.mod go.sum ./
 
 RUN go mod download
 
-COPY . /build
+COPY . .
 
 RUN go build -o /todos
 
