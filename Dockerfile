@@ -6,9 +6,9 @@ COPY go.mod go.sum ./
 
 RUN go mod download
 
-COPY *.go ./
-
 RUN sqlite3 mound.sqlite
+
+COPY . /build
 
 RUN CGO_ENABLED=1 go build -o /todos
 
