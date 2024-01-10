@@ -6,8 +6,8 @@ import (
 	"log"
 )
 
-func New() *sql.DB {
-	psqlInfo := "postgresql://Dee9975:XVN9pOyMUF3a@ep-lucky-lab-98347479.eu-central-1.aws.neon.tech/syrupstore?sslmode=require"
+func New(conn string) *sql.DB {
+	psqlInfo := conn
 	db, err := sql.Open("postgres", psqlInfo)
 
 	if err != nil {

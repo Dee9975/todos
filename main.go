@@ -4,8 +4,10 @@ import (
 	db2 "awesomeProject/db"
 	"awesomeProject/handlers"
 	"awesomeProject/store"
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"log"
+	"os"
 )
 
 func main() {
@@ -14,7 +16,12 @@ func main() {
 	api := e.Group("/api")
 	v1 := api.Group("/v1")
 
-	db := db2.New()
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Error getting env variables %s", err)
+	}
+
+	db := db2.New(os.Getenv("DB_CONNECTION_STRING"))
 	defer db.Close()
 
 	todoStore := store.NewTodoStore(db)
