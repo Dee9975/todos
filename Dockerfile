@@ -1,4 +1,5 @@
 FROM golang:1.21
+RUN apk add --no-cache --update gcc g++
 
 WORKDIR /build
 
