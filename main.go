@@ -34,6 +34,6 @@ func main() {
 
 	handler := handlers.NewHandler(todoStore)
 	handler.Register(v1)
-
-	log.Fatal(e.Start("0.0.0.0:8080"))
+	port := os.Getenv("PORT")
+	log.Fatal(e.Start(":" + port))
 }
