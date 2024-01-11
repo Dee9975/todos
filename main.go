@@ -35,5 +35,5 @@ func main() {
 	handler := handlers.NewHandler(todoStore)
 	handler.Register(v1)
 
-	log.Fatal(e.Start(":8080"))
+	log.Fatal(e.Start("0.0.0.0:8080"))
 }
