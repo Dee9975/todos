@@ -5,6 +5,7 @@ import (
 	"awesomeProject/handlers"
 	"awesomeProject/store"
 	"database/sql"
+	"fmt"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"log"
@@ -19,7 +20,7 @@ func main() {
 
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("Error getting env variables %s", err)
+		fmt.Println("Error loading .env file")
 	}
 
 	db := db2.New(os.Getenv("DB_CONNECTION_STRING"))

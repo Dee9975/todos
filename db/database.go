@@ -7,8 +7,7 @@ import (
 )
 
 func New(conn string) *sql.DB {
-	psqlInfo := conn
-	db, err := sql.Open("postgres", psqlInfo)
+	db, err := sql.Open("postgres", conn)
 
 	if err != nil {
 		log.Fatal(err)
