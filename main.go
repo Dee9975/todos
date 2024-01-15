@@ -10,6 +10,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"log"
+	"net/http"
 	"os"
 )
 
@@ -18,6 +19,9 @@ func main() {
 	e.Use(middleware.Logger())
 	e.File("/.well-known/apple-app-site-association", "public/apple-app-site-association")
 	e.File("/.well-known/assetlinks.json", "public/assetlinks.json")
+	e.GET("/:language/signup/:token", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, echo.Map{"success": true})
+	})
 	api := e.Group("/api")
 	v1 := api.Group("/v1")
 
