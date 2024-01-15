@@ -1,0 +1,28 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.optibet.optibet",
+      "sha256_cert_fingerprints": [
+        "63:B1:B6:2F:BD:8E:2C:3F:63:4D:9C:D6:1E:3B:5E:68:9A:8C:C6:D5:06:46:4A:27:21:A0:5F:56:ED:79:26:CF",
+        "E9:64:D5:A9:14:68:3D:68:79:F9:6A:2E:C6:BB:07:44:06:43:BA:C1:FD:50:48:98:21:0D:3D:B0:F8:9D:8A:B2"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.optibet.optibet.dev",
+      "sha256_cert_fingerprints": [
+        "63:B1:B6:2F:BD:8E:2C:3F:63:4D:9C:D6:1E:3B:5E:68:9A:8C:C6:D5:06:46:4A:27:21:A0:5F:56:ED:79:26:CF",
+        "E9:64:D5:A9:14:68:3D:68:79:F9:6A:2E:C6:BB:07:44:06:43:BA:C1:FD:50:48:98:21:0D:3D:B0:F8:9D:8A:B2"
+      ]
+    }
+  }
+]

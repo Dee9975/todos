@@ -1,0 +1,31 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "9M739TKW4V.com.casinoclient.optibet",
+          "9M739TKW4V.com.optibet.optibet.dev",
+          "9M739TKW4V.com.optibet.optibet.stage",
+          "9M739TKW4V.com.casinoclient.optibet.ee.dev",
+          "9M739TKW4V.com.casinoclient.optibet.ee.stage",
+          "9M739TKW4V.com.casinoclient.optibet.ee"
+        ],
+        "components": [
+          {
+            "/": "/??/signup/*"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+        "9M739TKW4V.com.casinoclient.optibet",
+        "9M739TKW4V.com.optibet.optibet.dev",
+        "9M739TKW4V.com.optibet.optibet.stage",
+        "9M739TKW4V.com.casinoclient.optibet.ee.dev",
+        "9M739TKW4V.com.casinoclient.optibet.ee.stage",
+        "9M739TKW4V.com.casinoclient.optibet.ee"
+    ]
+  },
+}
